@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: gotta-pwn-em-all-execute-app
+  namespace: argocd
+spec:
+  project: gotta-pwn-em-all-project
+  source:
+    repoURL: https://github.com/DoreenDaunique/test-get-cluster-role.git
+    targetRevision: HEAD
+    path: manifest/gotta-pwn-em-all-execute
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
