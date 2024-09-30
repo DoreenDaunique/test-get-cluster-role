@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: gotta-pwn-em-all-project
+  namespace: argocd
+spec:
+  description: Privilege Escalation Testing Project
+  sourceRepos:
+  - https://github.com/DoreenDaunique/test-get-cluster-role.git
+  destinations:
+  - namespace: "*"
+    server: "*"
+  clusterResourceWhitelist:
+  - group: "*"
+    kind: "*"
+  namespaceResourceWhitelist:
+  - group: "*"
+    kind: "*"
